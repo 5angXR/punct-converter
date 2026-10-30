@@ -1,0 +1,25 @@
+[package]
+name = "punct-converter"
+version = "0.1.0"
+edition = "2024"
+authors = ["xr <wongshinkk@gmail.com>"]
+description = "Fast CLI & library to convert Chinese full-width punctuation to English/half-width equivalents"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/5angXR/punct-converter"
+keywords = ["punctuation", "chinese", "text", "cjk", "converter"]
+categories = ["command-line-utilities", "text-processing"]
+
+[[bin]]
+name = "punct-converter"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+ignore = "0.4"
+encoding_rs = "0.8"
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true
